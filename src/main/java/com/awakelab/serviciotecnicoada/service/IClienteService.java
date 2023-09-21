@@ -5,7 +5,7 @@ import java.util.List;
 public interface IClienteService {
         public Cliente crearCliente(Cliente nuevoCliente);
         public Cliente actualizarCliente(Cliente cliente);
-        public List<Cliente> listarCliente();
+        public List<Cliente> listarClientes();
         public Cliente listarClienteID(int idCliente);
-        public void eliminarCliente(Cliente cliente);
+        public void eliminarCliente(int id);
 }

@@ -18,8 +18,8 @@ public class TecnicoController {
 
     @GetMapping
     public String listarTecnicos(Model model) {
-        List<Tecnico> listaTecnicos = tecnicoService.listarTecnicos();
-        model.addAttribute("atributoListaTecnicos", listaTecnicos);
+        List<Tecnico> listaTecnico = tecnicoService.listarTecnico();
+        model.addAttribute("atributoListaTecnicos", listaTecnico);
         return "templateListarTecnicos";
     }
 
@@ -43,7 +43,7 @@ public class TecnicoController {
 
     @GetMapping("/editarTecnico/{id}")
     public String mostrarFormularioEdicion(@PathVariable int id, Model model) {
-        Tecnico tecnico = tecnicoService.obtenerTecnicoPorId(id);
+        Tecnico tecnico = tecnicoService.listarTecnicoID(id);
 
         if (tecnico == null) {
             // Manejo de error si el técnico no existe

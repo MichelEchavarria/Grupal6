@@ -18,15 +18,9 @@ public class UsuarioController {
 
     @GetMapping
     public String listarUsuarios(Model model) {
-        List<Usuario> listaUsuarios = usuarioService.listarUsuarios();
+        List<Usuario> listaUsuarios = usuarioService.listarUsuario();
         model.addAttribute("atributoListaUsuarios", listaUsuarios);
         return "templateListarUsuarios";
-    }
-
-    @GetMapping("/crearUsuario")
-    public String mostrarFormularioCrearUsuario(Model model) {
-        // Aquí puedes agregar lógica para obtener los datos necesarios, si es necesario
-        return "templateFormularioCrearUsuario";
     }
 
     @PostMapping("/crearUsuario")
@@ -43,7 +37,7 @@ public class UsuarioController {
 
     @GetMapping("/editarUsuario/{id}")
     public String mostrarFormularioEdicion(@PathVariable int id, Model model) {
-        Usuario usuario = usuarioService.obtenerUsuarioPorId(id);
+        Usuario usuario = usuarioService.listarUsuarioID(id);
 
         if (usuario == null) {
             // Manejo de error si el usuario no existe

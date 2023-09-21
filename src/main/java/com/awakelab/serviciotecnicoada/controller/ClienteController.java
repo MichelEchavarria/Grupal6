@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import com.awakelab.serviciotecnicoada.service.serviceimpl.ClienteServiceImpl;
 import java.util.List;
 
 @Controller
@@ -20,7 +20,7 @@ public class ClienteController {
     public String listarClientes(Model model) {
         List<Cliente> listaClientes = clienteService.listarClientes();
         model.addAttribute("atributoListaClientes", listaClientes);
-        return "templateListarClientes";
+        return "TemplateClientes";
     }
 
     @GetMapping("/crearCliente")
@@ -43,7 +43,7 @@ public class ClienteController {
 
     @GetMapping("/editarCliente/{id}")
     public String mostrarFormularioEdicion(@PathVariable int id, Model model) {
-        Cliente cliente = clienteService.obtenerClientePorId(id);
+        Cliente cliente = clienteService.listarClienteID(id);
 
         if (cliente == null) {
             // Manejo de error si el cliente no existe

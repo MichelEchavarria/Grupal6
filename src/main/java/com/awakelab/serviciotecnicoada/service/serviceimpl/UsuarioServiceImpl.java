@@ -50,16 +50,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public void eliminarUsuario(Usuario usuario) {
-        try {
-            if (objUsuarioRepo.existsById(usuario.getId())){
-                objUsuarioRepo.deleteById(usuario.getId());
-            }else {
-                throw new RuntimeException("UPS!!!! " + usuario.getId() + " no existe");
-            }
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("Usuario borrado exitosamente");
+    public void eliminarUsuario(int id) {
+        objUsuarioRepo.deleteById(id);
     }
 }

@@ -7,5 +7,5 @@ public interface ITecnicoService {
     public Tecnico actualizarTecnico(Tecnico tecnico);
     public List<Tecnico> listarTecnico();
     public Tecnico listarTecnicoID(int idTecnico);
-    public void eliminarTecnico(Tecnico tecnico);
+    public void eliminarTecnico(int id);
 }

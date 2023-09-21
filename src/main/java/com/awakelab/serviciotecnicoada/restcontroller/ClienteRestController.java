@@ -27,7 +27,7 @@ public class ClienteRestController {
     @GetMapping
     public List<Cliente> listarCliente() {
 
-        return objClienteService.listarCliente();
+        return objClienteService.listarClientes();
     }
 
     @PutMapping("/{id}")
@@ -38,8 +38,8 @@ public class ClienteRestController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarCliente(@PathVariable Cliente cliente){
+    public void eliminarCliente(@PathVariable int id){
 
-        objClienteService.eliminarCliente(cliente);
+        objClienteService.eliminarCliente(id);
     }
 }

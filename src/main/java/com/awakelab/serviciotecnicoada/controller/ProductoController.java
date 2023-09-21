@@ -18,7 +18,7 @@ public class ProductoController {
 
     @GetMapping
     public String listarProductos(Model model) {
-        List<Producto> listaProductos = productoService.listarProductos();
+        List<Producto> listaProductos = productoService.listarProducto();
         model.addAttribute("atributoListaProductos", listaProductos);
         return "templateListarProductos";
     }

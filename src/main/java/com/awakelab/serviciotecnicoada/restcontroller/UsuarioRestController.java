@@ -40,8 +40,8 @@ public class UsuarioRestController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarUsuario(@PathVariable Usuario usuario){
+    public void eliminarUsuario(@PathVariable int id){
 
-        objUsuarioService.eliminarUsuario(usuario);
+        objUsuarioService.eliminarUsuario(id);
     }
 }

@@ -36,7 +36,7 @@ public class ClienteServiceImpl implements IClienteService {
     }
 
     @Override
-    public List<Cliente> listarCliente() {
+    public List<Cliente> listarClientes() {
         List<Cliente> listarClientes = new ArrayList<Cliente>();
         listarClientes = objClienteRepo.findAll();
         return listarClientes;
@@ -48,17 +48,8 @@ public class ClienteServiceImpl implements IClienteService {
     }
 
     @Override
-    public void eliminarCliente(Cliente cliente) {
-        try {
-            if (objClienteRepo.existsById(cliente.getId())){
-                objClienteRepo.deleteById(cliente.getId());
-            }else {
-                throw new RuntimeException("UPS!!!! " + cliente.getId() + " no existe");
-            }
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("Cliente borrado exitosamente");
+    public void eliminarCliente(int id) {
+        objClienteRepo.deleteById(id);
     }
 
 }
